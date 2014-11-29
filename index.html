@@ -14,10 +14,32 @@
 
     <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+
+    <script type="text/javascript" src="//w.soundcloud.com/player/api.js"></script>
+
     <script type="text/javascript" src="/js/ssh_sc_api.js"></script>
   </head>
   <body>
     <div class="container">
+      <div class="brick2">
+        <h1>SlideShare + SoundCloud = slidecast</h1>
+      </div>
+      <div id="add_slideshare" class="brick2">
+      </div>
+      <div id="add_soundcloud" class="brick2">
+      </div>
+      <div id="show_players" class="brick2 row">
+        <div id="ssh_player_box" class="col-md-6">
+        </div>
+        <div id="sc_player_box" class="col-md-6">
+        </div>
+      </div>
+      <div id="mark_slides_timestamp" class="brick2 hide">
+      </div>
+      <div id="generate_code" class="brick2 hide">
+        <textarea id="result" rows="20" cols="80"></textarea>
+      </div>
     </div>
   </body>
 </html>
