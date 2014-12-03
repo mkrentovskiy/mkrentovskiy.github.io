@@ -101,7 +101,7 @@
             var p = (i == 1) ? 0 : $("#slide_" + (i - 1)).val();
             var pn = (i == total) ? 999999999 : $("#slide_" + i).val();
             
-            s += "\t[" +  p + ", " + pn + ", " + i + "]" + (i == total ? "\n" : ",\n");
+            s += "\t\t[" +  p + ", " + pn + ", " + i + "]" + (i == total ? "\n" : ",\n");
         }
         ss = $("#slideshare_source").val();
         sc = $("#soundcloud_source").val();
@@ -114,7 +114,7 @@
 \n\
 <div id=\"slidecast\"></div>\n\
 <script type=\"text/javascript\">\n\
-\t$.slidecast_player($(\"#slidecast\"), \"" + ss + "\", \"" + sc + "\", [" + s + "]);\n\
+\t$.slidecast_player($(\"#slidecast\"), \"" + ss + "\", \"" + sc + "\", [\n" + s + "\t]);\n\
 </script>\n";
         
         $("#result").val(code);
