@@ -40,18 +40,20 @@
         </form>
       </div>
       <div class="brick2 row">
-        <div class="col-md-7">
+        <div class="col-sm-9">
           <div id="ssh_player_box"></div>
         </div>
-        <div class="col-md-5">
-           <iframe id="sc-widget" width="100%" height="480" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https://api.soundcloud.com/tracks/179213363"></iframe>
+        <div class="col-sm-3">
+          <div id="btn_cb" class="form-group">
+            <button class="btn btn-warning" onclick="$.app.forCurrentSlide();">For current slide!</button>
+          </div>          
         </div>
+      </div>
+      <div class="brick2 row">
+        <iframe id="sc-widget" width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https://api.soundcloud.com/tracks/179213363?show_artwork=false"></iframe>
       </div>
       <div id="mark_slides_timestamp" class="brick2 hide">
         <form onsubmit="return false;">
-          <div class="form-group">
-            <button class="btn btn-warning" onclick="$.app.forCurrentSlide();">For current slide!</button>
-          </div>
           <span id="_p"> 
             <div class="col-sm-1 r brick1">
               <span class="num">#</span>

@@ -11,6 +11,7 @@
         $("#_p").remove();
 
         $("#btn_ls").hide();
+        $("#btn_cb").hide();
     }
 
     $.app.addSlideshare = function() {
@@ -47,6 +48,7 @@
                 widget = SC.Widget(widgetIframe);
 
             widget.bind(SC.Widget.Events.READY, function() {
+                widget.load(doc_id, { show_artwork: false });
                 scp = widget;
                 $("#btn_sc").hide();
             }); 
@@ -76,6 +78,7 @@
                     $("#for_slides").append(n);
                 }
                 $("#mark_slides_timestamp").removeClass("hide");
+                $("#btn_cb").show();
                 $("#btn_ls").hide();
             } else {
                 $("#btn_sc").show();
@@ -95,24 +98,25 @@
 
         s = "";
         for(i = 1; i <= total; i++) {
-            var p = (i == 1) ? 0 : $("#slide_" + i).val();
-            var pn = (i == total) ? 999999999 : $("#slide_" + (i + 1)).val();
+            var p = (i == 1) ? 0 : $("#slide_" + (i - 1)).val();
+            var pn = (i == total) ? 999999999 : $("#slide_" + i).val();
             
-            s += "[" +  p + ", " + pn + ", " + i + "]" + (i == total ? "" : ",");
+            s += "\t[" +  p + ", " + pn + ", " + i + "]" + (i == total ? "\n" : ",\n");
         }
-        var code = " \
-            (function() { \
-                var a = [" + s + "]; \
-                var ss = null; \
-                var sc = null; \
-                var c = 0; \
-                var check_a = function(mi, ma, pos, s){ if(pos>=min&&pos<max&&ss) { ss.jumpTo(s); c = s; } }; \
-                var set_to = function(to) { for(i = 0; i < a.length; i++) { if(a[i][2] == to&&sc) sc.seekTo(a[i][0]); }}; \
-                var check_s = function(s) { if(s != c) { set_to(s); c = s; } }; \
-            })(); \
- \
-        ";
+        ss = $("#slideshare_source").val();
+        sc = $("#soundcloud_source").val();
 
+        var code = "<script type=\"text/javascript\" src=\"//code.jquery.com/jquery-2.1.1.min.js\"></script>\n\
+<script type=\"text/javascript\" src=\"//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js\"></script>\n\
+<script type=\"text/javascript\" src=\"//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js\"></script>\n\
+<script type=\"text/javascript\" src=\"//w.soundcloud.com/player/api.js\"></script>\n\
+<script type=\"text/javascript\" src=\"//mkrentovskiy.github.io/js/slidecast_player.js\"></script>\n\
+\n\
+<div id=\"slidecast\"></div>\n\
+<script type=\"text/javascript\">\n\
+\t$.slidecast_player($(\"#slidecast\"), \"" + ss + "\", \"" + sc + "\", [" + s + "]);\n\
+</script>\n";
+        
         $("#result").val(code);
     }
     
