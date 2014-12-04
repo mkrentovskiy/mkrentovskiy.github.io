@@ -107,7 +107,6 @@
         sc = $("#soundcloud_source").val();
 
         var code = "<script type=\"text/javascript\" src=\"//code.jquery.com/jquery-2.1.1.min.js\"></script>\n\
-<script type=\"text/javascript\" src=\"//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js\"></script>\n\
 <script type=\"text/javascript\" src=\"//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js\"></script>\n\
 <script type=\"text/javascript\" src=\"//w.soundcloud.com/player/api.js\"></script>\n\
 <script type=\"text/javascript\" src=\"//mkrentovskiy.github.io/js/slidecast_player.js\"></script>\n\
